@@ -1,0 +1,23 @@
+<rss version="2.0">
+	<channel>
+		<title>Bibliography of Research on Social Network Sites</title>
+		<link>http://www.danah.org/researchBibs/sns.html</link>
+		<description>This feed provides a bibliography of articles concerning social network sites.  The research contained here is focused specifically on social network sites (sometimes called "social networking" sites). Some of this is connected to social media, social software, Web2.0, social bookmarking, educational technologies, communities research, etc. but the organizing focus is specifically SNSs. This list is not methodologically or disciplinarily organized. There is work here from communications, information science, anthropology, sociology, economics, political science, cultural studies, computer science, etc.</description>
+		<language>en-us</language>
+		<pubDate>Tue, 2 Feb 2010 04:00:00 GMT</pubDate>
+		<lastBuildDate>Tue, 2 Feb 2010 04:00:00 GMT</lastBuildDate>
+		
+		<item>
+			<title>Show me your friends and I will tell you what type of person you are: How one's profile, number of friends, and type of friends influence impression formation on social network sites</title>
+			<link>http://www3.interscience.wiley.com/cgi-bin/fulltext/123248036/HTMLSTART</link>
+			<pubdate>Tue, 2 Feb 2010 05:00:00 GMT</pubdate>
+			<description>By Bla Bla Bla</description>
+		</item>
+		<item>
+			<title>Aliases, creeping, and wall cleaning: Understanding privacy in the age of Facebook</title>
+			<link>http://firstmonday.org/htbin/cgiwrap/bin/ojs/index.php/fm/article/view/2775/2432</link>
+			<pubdate>Wed, 03 Feb 2010 00:00:00 -0500</pubdate>
+			<description>By Raynes-Goldie, Kate</description>
+		</item>
+	</channel>
+</rss>

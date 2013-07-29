@@ -1,0 +1,125 @@
+<html>
+   <head>
+       <title>Research on Data Driven Journalism</title>
+       <!--<script src="http://api.simile-widgets.org/exhibit/2.2.0/exhibit-api.js" type="text/javascript"></script>-->
+       <link rel="exhibit/data" href="DDJ.bib" type="application/x-bibtex" />
+       
+       <style>
+           body {
+               font-family: Verdana, Arial, Helvetica, sans-serif;
+           }
+           div.publication {}
+           div.title { font-weight: bold;}
+		   span.grayed {color: gray;}
+		   div a{
+				color:black;
+			}
+			h1{
+				font-size: medium;
+			}
+			div h2{
+				font-size: 60%;
+			}
+       </style>
+   </head>
+   <body onLoad="Exhibit.create(null, 'Publication');">
+       <div align="center">
+		<h1><u>Bibliography of Data Driven Journalism Sites</u></h1>
+		<a href="submit.php">submit new citation</a></div>
+		<div align="left"><p><b>Last updated: 2013-07-28</b></p>
+			<p>This page provides a bibliography of articles concerning data driven journalism sites. For an overview of this space, including a definition of &quot;data driven jounralism sites,&quot; a history of SNSs, and a literature review, see boyd &amp; Ellison's 2007 introduction to the <em>JCMC</em> Special Issue on Social Network Sites,<strong> <a href="http://jcmc.indiana.edu/vol13/issue1/boyd.ellison.html">Social Network Sites: Definition, History, and Scholarship</a>. </strong>Example social network sites addressed include: Friendster, MySpace, Facebook, Orkut, Cyworld, Mixi, Black Planet, Dodgeball, and LiveJournal.</p>
+		<p>The research contained below is focused specifically on social network sites (sometimes called &quot;social networking&quot; sites). Some of this is connected to social media, social software, Web2.0, social bookmarking, educational technologies, communities research, etc. but the organizing focus is specifically SNSs. This list is not methodologically or disciplinarily organized. There is work here from communications, information science, anthropology, sociology, economics, political science, cultural studies, computer science, etc. </p>
+		<p>I try to keep this up to date so please <a href="submit.php">send me additional publications</a> as you learn of them. I do not host articles so only those hosted elsewhere are linked. Please contact the author if you want a copy of an article that is not linked. </p></div>
+		<p><b>Update, 7/15/10</b>: We're having some bugs with the Exhibit framework.  In the meantime, feel free to use the <a href="DDJ.bib">bibTeX version</a> of this bibliography.</p>
+		<div align="center">
+       <table width="70%">
+           <tr valign="top">
+               <td>
+                       <div ex:role="collection" ex:itemTypes="Publication"></div>
+                       <div ex:role="exhibit-lens" ex:itemTypes="Publication" class="publication" style="display: none">
+										
+							
+							<div>
+								<span ex:content=".author" ></span>.
+								(<span ex:content=".year"></span>).								
+								<span ex:select=".peer">
+									<span ex:case="false"><span class="grayed">
+										<span ex:select=".url">
+											<span ex:case="none"><b><span ex:content=".label"></span>.</b></span>
+											<a style="color: gray" ex:if-exists=".url" ex:href-content=".url" target=""><b><span ex:content=".label"></span>.</b></a>
+										</span>
+									</span></span>
+									<span ex:case="true">
+										<span ex:select=".url">
+											<span ex:case="none"><b><span ex:content=".label"></span>.</b></span>
+											<a ex:if-exists=".url" ex:href-content=".url" target=""><b><span ex:content=".label"></span>.</b></a>
+										</span>
+									</span>
+								</span>
+								
+								
+								<span ex:if-exists=".journal">
+									<i><span ex:content=".journal"></span></i><span ex:if-exists=".volume">,<span ex:content=".volume"></span></span><span ex:if-exists=".pages">,<span ex:content=".pages"></span></span>.
+								</span>
+								<span ex:if-exists=".editors">
+									In <span ex:content=".editors"></span>(Eds.),
+								</span>
+								<span ex:if-exists=".booktitle">
+									<i><span ex:content=".booktitle"></span></i>.
+									<span ex:if-exists=".pages">
+										(pp. <span ex:content=".pages"></span>).
+									</span>
+									<span ex:if-exists=".address">
+										<span ex:content=".address"></span>.
+									</span>
+									<span ex:if-exists=".school">
+										<span ex:content=".school"></span>.
+									</span>
+									<span ex:if-exists=".month">
+										<span ex:content=".month"></span>.									
+									</span>
+									<span ex:if-exists=".publisher">
+										<span ex:content=".publisher"></span>.
+									</span>
+								</span>
+								
+								<span ex:if-exists=".note">
+									<span ex:content=".note"></span>.
+								</span>
+								
+								<span ex:select=".pub-type">
+									<span ex:case="article"><font color="royalblue"> (journal article) </font></span>
+									<span ex:case="book"><font color="olivedrab"> (book chapter) </font></span>
+									<span ex:case="inbook"><font color="olivedrab"> (book chapter) </font></span>
+									<span ex:case="inproceedings"><font color="red"> (conference paper) </font></span>
+									<span ex:case="mastersthesis"><font color="mediumvioletred"> (mastersthesis) </font></span>
+									<span ex:case="misc"><font color="pink"> (misc) </font></span>
+									<span ex:case="phdthesis"><font color="darkviolet"> (phdthesis) </font></span>
+									<span ex:case="techreport"><font color="orange"> (techreport) </font></span>
+									<span ex:case="unpublished"><font color="orange"> (unpublished) </font></span>									
+								</span>
+								
+							<p></p></div>
+                       	</div>
+
+						<div ex:role="exhibit-lens" ex:itemTypes="Author" class="author" style="display: none">
+						<span ex:control="copy-button" style="float: right"></span>
+						<div class="title"><span ex:content=".label"></span></div>
+						<ol class="publications" ex:content="!author">
+							<li ex:content="value"></li>
+							</ol>
+							</div>
+                       </div>
+                       
+                      <font size="-2"> <div ex:role="exhibit-view"
+							ex:viewClass="Exhibit.TileView"
+                           ex:orders=".firstauthor"
+                           ex:possibleOrders=".pub-type, .firstauthor, .year, .label, .publisher, .booktitle, .editors, .journal, .volume"
+						   ex:showAll = "true"
+						   ex:grouped = "false"></div></font>
+               </td>
+				
+           </tr>
+       </table></div>
+   </body>
+</html>
