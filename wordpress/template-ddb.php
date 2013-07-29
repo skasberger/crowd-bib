@@ -1,11 +1,11 @@
 <?php
 /**
- * Template Name: DDB
+ * Template Name: Crowd Bib
  * Description: A Page Template for the results of the data driven bibliography project
  *
  */
 
-include 'config-ddb.php';
+include 'config-bib.php';
 
 function display($title, $list, $table_name){
 	$query = "SELECT * FROM $table_name WHERE approved = 'true' AND list = '$list' ORDER BY author ASC";	

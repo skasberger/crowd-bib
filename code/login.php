@@ -6,7 +6,7 @@ if($_SESSION["login"]){
 	header( 'Location: moderation.php' );	
 }
 if($_POST["login"] && $_POST["password"]){
-	if($_POST["login"] == $user_name && md5($_POST["password"]) == $user_password_md5){
+	if($_POST["login"] == $user_name && md5($_POST["password"]) == md5($user_password_md5)) {
 			$_SESSION["login"] = $user_name;
 			header( 'Location: moderation.php' ) ;
 			}
