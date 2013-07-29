@@ -1,8 +1,11 @@
+<?php
+include 'config.php';
+?>
 <html>
    <head>
-       <title>Research on Data Driven Journalism</title>
+       <title><?php echo $page_title; ?></title>
        <!--<script src="http://api.simile-widgets.org/exhibit/2.2.0/exhibit-api.js" type="text/javascript"></script>-->
-       <link rel="exhibit/data" href="DDJ.bib" type="application/x-bibtex" />
+       <link rel="exhibit/data" href="<?php echo $list; ?>.bib" type="application/x-bibtex" />
        
        <style>
            body {
@@ -21,22 +24,21 @@
 				font-size: 60%;
 			}
        </style>
-   </head>
-   <body onLoad="Exhibit.create(null, 'Publication');">
-       <div align="center">
-		<h1><u>Bibliography of Data Driven Journalism Sites</u></h1>
-		<a href="submit.php">submit new citation</a></div>
-		<div align="left"><p><b>Last updated: 2013-07-28</b></p>
-			<p>This page provides a bibliography of articles concerning data driven journalism sites. For an overview of this space, including a definition of &quot;data driven jounralism sites,&quot; a history of SNSs, and a literature review, see boyd &amp; Ellison's 2007 introduction to the <em>JCMC</em> Special Issue on Social Network Sites,<strong> <a href="http://jcmc.indiana.edu/vol13/issue1/boyd.ellison.html">Social Network Sites: Definition, History, and Scholarship</a>. </strong>Example social network sites addressed include: Friendster, MySpace, Facebook, Orkut, Cyworld, Mixi, Black Planet, Dodgeball, and LiveJournal.</p>
-		<p>The research contained below is focused specifically on social network sites (sometimes called &quot;social networking&quot; sites). Some of this is connected to social media, social software, Web2.0, social bookmarking, educational technologies, communities research, etc. but the organizing focus is specifically SNSs. This list is not methodologically or disciplinarily organized. There is work here from communications, information science, anthropology, sociology, economics, political science, cultural studies, computer science, etc. </p>
-		<p>I try to keep this up to date so please <a href="submit.php">send me additional publications</a> as you learn of them. I do not host articles so only those hosted elsewhere are linked. Please contact the author if you want a copy of an article that is not linked. </p></div>
-		<p><b>Update, 7/15/10</b>: We're having some bugs with the Exhibit framework.  In the meantime, feel free to use the <a href="DDJ.bib">bibTeX version</a> of this bibliography.</p>
+	</head>
+	<body onLoad="Exhibit.create(null, 'Publication');">
 		<div align="center">
-       <table width="70%">
-           <tr valign="top">
-               <td>
-                       <div ex:role="collection" ex:itemTypes="Publication"></div>
-                       <div ex:role="exhibit-lens" ex:itemTypes="Publication" class="publication" style="display: none">
+			<h1>Bibliography of Research on Data Journalism</h1>
+			<p>This page provides a bibliography of research publications concerning data journalism, computer assisted reporting and other forms of journalism dealing with structured information.</p>
+			<p>This list collects scholarly work on this topic. If you are looking for outstanding projects, tools, tutorials or data platforms, this <a href="https://docs.google.com/spreadsheet/ccc?key=0Aps26R6VsRYUdHNGOVlyVlZfS2NLcHpSRElZMkhaV0E#gid=0">open list of websites about data journalism</a> might be a good start. Also, the <a href="https://twitter.com/search?q=%23ddj">Twitter hashtag (#ddj)</a> and the <a href="http://lists.okfn.org/mailman/listinfo/data-driven-journalism">OKFN</a> and <a href="http://legacy.ire.org/membership/subscribe/nicar-l.html">NICAR-L</a> mailing lists might be helpful resources.</p>
+			<p>This list has been started recently and is far away from being complete. Please feel free to add your own citations by submitting them above. The list is not methodologically or disciplinarily organized. There is work here from communications, information science, anthropology, sociology, economics, political science, cultural studies, computer science, etc.. Of great help were the collections by <a href="http://lilianabounegru.org/">Liliana Bounegru</a>, <a href="http://com.miami.edu/car/">Bruce Garrison</a>, <a href="http://www.hans-bredow-institut.de/de/mitarbeiter/pd-dr-wiebke-loosen">Wiebke Loosen</a>, <a href="http://localhost/jonathanstray.com/a-computational-journalism-reading-list">Jonathan Stray</a> and <a href="http://dajoresearch.blogspot.fi/">Turo Uskali</a> I do not host articles so only those hosted elsewhere are linked. Please contact the author if you want a copy of an article that is not linked.</p>
+			<p>If you have a question or if you find factual errors in the bibliography, please <a href="http://ausserhofer.net/about/contact/">drop me a line</a>. If there is a software bug or if you have suggestions, please use the <a href="https://github.com/skasberger/crowd-bib">issue tracking function at github</a>.</p>
+			<p><a href="http://www.danah.org/">danah boyd</a> and <a href="https://twitter.com/dylanjfield">Dylan Field</a> developed the initial version of this crowd-sourced bibliography for research on <a href="http://www.danah.org/researchBibs/sns.php">social network sites</a> and <a href="http://www.danah.org/researchBibs/twitter.php">Twitter</a>. danah also provided us with the source code. <a href="https://twitter.com/stefankasberger">Stefan Kasberger</a>, my friend and colleague at <a href="http://okfn.at/">OKFN Austria</a>, then developed it further and <a href="https://github.com/skasberger/crowd-bib">released it as open source</a> under the <a href="http://opensource.org/licenses/MIT" title"MIT License">MIT License</a>. Feel free to make your own bibliography for your own research interests. The project was started during my fellowship at <a href="http://hiig.de/">Alexander von Humboldt Institute for Internet and Society</a>.</p>
+			<div align="center">
+				<table width="70%">
+           			<tr valign="top">
+               			<td>
+							<div ex:role="collection" ex:itemTypes="Publication"></div>
+								<div ex:role="exhibit-lens" ex:itemTypes="Publication" class="publication" style="display: none">
 										
 							
 							<div>

@@ -29,7 +29,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 <body onLoad="onLoadScript()">
 	<div align="center">
 		<h1><u>Submit New Citation</u></h1>
-		<a href="ddj.php">social network sites</a>
+		<a href="bib.php">social network sites</a>
 	</div>
 	<div class="colmask threecol">
 		<div class="colmid">
@@ -175,7 +175,21 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 							<b>Pages</b><br>
 							<input name="pages" id="pagesValue" type="text" onkeyup="refreshPreview()"></input><br><br>
 						</span>
-						
+
+						<b>Open Access?</b><span class="required">*</span> (<a href="http://access.okfn.org/definition/" title"Budapest Open Access Initiative">BOAI</a>)<br>
+						<select id="pubtype" name="openaccess">
+							<option value="CC-by">Open Access: CC-by</option>
+							<option value="CC-by-sa">Open Access: CC-by-sa</option>
+							<option value="CC-by-nc-sa">CC-by-nc-sa</option>
+							<option value="CC-by-nd">CC-by-nd</option>
+							<option value="CC-by-nc-nd">CC-by-nc-nd</option>
+							<option value="CC-by-nc-sa">CC-by-nc-sa</option>
+							<option value="open-access-others">Open Access: others</option>
+							<option value="non-open-access-others">others</option>
+							<option value="non-open-access">All rights reserved</option>
+						</select>
+						<br><br>
+
 						<span id="editors">
 							<b>Editors</b><br>
 							<input name="editors" id="editorsValue" type="text" onkeyup="refreshPreview()"></input><br><br>

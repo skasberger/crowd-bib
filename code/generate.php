@@ -3,7 +3,7 @@ session_start();
 include 'config.php';
 
 if($_SESSION["login"]){
-	createBibTeXFile("DDJ", $list, $table_name);
+	createBibTeXFile($list, $table_name);
 	$_SESSION["changesMade"] = true;
 	header( 'Location: moderation.php' ) ;
 }
@@ -11,11 +11,11 @@ else{
 	header( 'Location: login.php' ) ;
 }
 
-function createBibTeXFile($target, $list, $table_name){
+function createBibTeXFile($list, $table_name){
 	$query = "select * FROM $table_name WHERE list = '$list' AND approved = 'true'";
 	echo $query;
 	$result = mysql_query($query) or die (mysql_error());
-	$targetfile = $docroot.$target.".bib";
+	$targetfile = $docroot.$list.".bib";
 	$f = fopen($targetfile, "w") or die ("cannot open file");
 	while ($row = mysql_fetch_object($result)){
 		fwrite($f,"@".$row->pubtype."{ ".$row->pubkey.",\n");

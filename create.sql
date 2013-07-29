@@ -1,4 +1,7 @@
-CREATE TABLE `biblioEntriesDDJ` (
+# creates the table for the bibliographic database 
+# enter a proper tablename (same as in config.php!)
+
+CREATE TABLE `TABLENAME` (
   `pubtype` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `approved` varchar(255) NOT NULL,
@@ -13,6 +16,7 @@ CREATE TABLE `biblioEntriesDDJ` (
   `journal` varchar(255) NOT NULL,
   `volume` varchar(255) NOT NULL,
   `pages` varchar(255) NOT NULL,
+  `license` varchar(255) NOT NULL,
   `editors` varchar(255) NOT NULL,
   `book_title` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
