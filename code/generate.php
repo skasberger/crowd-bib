@@ -13,9 +13,10 @@ else{
 
 function createBibTeXFile($list, $table_name){
 	$query = "select * FROM $table_name WHERE list = '$list' AND approved = 'true'";
-	echo $query;
+
 	$result = mysql_query($query) or die (mysql_error());
 	$targetfile = $docroot.$list.".bib";
+	echo $targetfile;
 	$f = fopen($targetfile, "w") or die ("cannot open file");
 	while ($row = mysql_fetch_object($result)){
 		fwrite($f,"@".$row->pubtype."{ ".$row->pubkey.",\n");

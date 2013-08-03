@@ -62,6 +62,7 @@ $url = mysql_real_escape_string($_POST["url"]);
 $journal = mysql_real_escape_string($_POST["journal"]);
 $volume = mysql_real_escape_string($_POST["volume"]);
 $pages = mysql_real_escape_string($_POST["pages"]);
+$openaccess = mysql_real_escape_string($_POST["openaccess"]);
 $editors = mysql_real_escape_string($_POST["editors"]);
 $address = mysql_real_escape_string($_POST["address"]);
 $school = mysql_real_escape_string($_POST["school"]);
@@ -148,7 +149,7 @@ $pubdate = date('D, d M Y H:i:s O', strtotime($timestamp));
 
 // insert variables into database
 if($errors == array()){
-	$query = "INSERT INTO $table_name VALUES ('$pubtype', '$email', '$peer', '$list','$key', '$peer', '$firstAuthor', '$title', '$author', '$year', '$url', '$journal','$volume', '$pages', '$editors', '$booktitle', '$address', '$school', '$institution', '$organization', '$month', '$publisher', '$note', CURDATE())";
+	$query = "INSERT INTO $table_name VALUES ('$pubtype', '$email', '$peer', '$list','$key', '$peer', '$firstAuthor', '$title', '$author', '$year', '$url', '$journal','$volume', '$pages', '$editors', '$booktitle', '$address', '$school', '$institution', '$organization', '$month', '$publisher', '$note', CURDATE(), '$openaccess')";
 	$result = mysql_query($query) or die(mysql_error());
 	
 	if($result == true){

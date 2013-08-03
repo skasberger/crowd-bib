@@ -2,5 +2,9 @@ config.php
 config-server.php
 config-local.php
 config-user.php
-config-bib.php
+config-julian.php
+bibcode/
+bibcode.tar
+config-wordpress.php
+
 

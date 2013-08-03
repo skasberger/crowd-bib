@@ -1,5 +1,7 @@
 <?php
 
+include 'config.php';
+
 session_start();
 $_SESSION['name'] = "YourSession";
 
@@ -7,29 +9,24 @@ if (!isset($_SESSION['initiated']))
 {
     session_regenerate_id();
     $_SESSION['initiated'] = true;
-	echo session_status();
-	echo "<br>ID: ".session_id();
 }
-
-/*
-if (session_status() !== PHP_SESSION_ACTIVE) {
-	session_start();
-	echo session_status();
-	echo "<br>ID: ".session_id();
-}
-*/
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!DOCTYPE html>
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Submit New Citation</title>
-	<link type="text/css" rel="stylesheet" href="submit.css"></style>
+	<title><?php echo $page_title; ?> - Submit New Citation</title>
+	<link type="text/css" rel="stylesheet" href="style.css"></style>
 	<script type="text/javascript" src="submit.js"></script>
+
+	<?php echo $piwik; ?>
+
 </head>
 <body onLoad="onLoadScript()">
 	<div align="center">
 		<h1><u>Submit New Citation</u></h1>
-		<a href="bib.php">social network sites</a>
+		<a href="bib.php">Data Journalism</a>
 	</div>
 	<div class="colmask threecol">
 		<div class="colmid">
@@ -49,10 +46,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 									$_SESSION["success"] = "";
 									echo "<hr><b>There was an error</b><br>For some reason there was an error in your submission.  Try again later, or email me.<hr>";
 								} 
-							}else{
-								echo "session not set!";
-							}
-							?>
+							} ?>
 						</p></span>
 
 						<span id="errors"><p>
@@ -177,16 +171,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 						</span>
 
 						<b>Open Access?</b><span class="required">*</span> (<a href="http://access.okfn.org/definition/" title"Budapest Open Access Initiative">BOAI</a>)<br>
-						<select id="pubtype" name="openaccess">
-							<option value="CC-by">Open Access: CC-by</option>
-							<option value="CC-by-sa">Open Access: CC-by-sa</option>
-							<option value="CC-by-nc-sa">CC-by-nc-sa</option>
-							<option value="CC-by-nd">CC-by-nd</option>
-							<option value="CC-by-nc-nd">CC-by-nc-nd</option>
-							<option value="CC-by-nc-sa">CC-by-nc-sa</option>
-							<option value="open-access-others">Open Access: others</option>
-							<option value="non-open-access-others">others</option>
-							<option value="non-open-access">All rights reserved</option>
+						<select id="openaccess" name="openaccess">
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
 						</select>
 						<br><br>
 
@@ -228,7 +215,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 						
 						<span id="note">
 							<b>Notes</b><br>
-							<textarea rows ="3" cols="80" name="note" id="noteValue" type="text" onkeyup="refreshPreview()"></textarea><br><br>
+							<textarea rows ="4" cols="50" name="note" id="noteValue" type="text" onkeyup="refreshPreview()"></textarea><br><br>
 						</span>
 						<br><br>
 					</div>
@@ -259,6 +246,15 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 							<p><a href="javascript:resetAllElements()">(reset all elements)</a></p>
 							<p><span class="required">*</span> designates required fields</p>
 						</div>
+						<div>
+							<h2 style="margin-top:200px;">Navigate</h2>
+							<ul>
+								<li><a href="index.php">About</a></li>
+								<li><a href="bib.php">View</a></li>
+								<li><a href="<?php echo $list; ?>.bib">Get bibTeX</a></li>
+								<li><a href="http://www.github.com/skasberger/crowd-bib">Sourcecode @ GitHub</a></li>
+							</ul>
+						</div>	
 					</div>
 				</form>
 			</div>

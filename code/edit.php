@@ -31,42 +31,59 @@ if($_SESSION["login"]){
 			$month = $row->month;
 			$publisher = $row->publisher;
 			$note = $row->note;
-		}
-		echo "<html>\n<head>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"moderation.css\"></style>\n<script type=\"text/javascript\" src=\"moderation.js\"></script>\n<title>Moderation</title>\n</head>\n<body>\n";
-		echo "<div id=\"sidebar\">\n";
-		echo "You are logged in as ".$_SESSION["login"]."... (<a href=\"logout.php\"><i>logout</i></a>)<br><br>\n";
-		echo "(<a href=\"moderation.php\"><i>view unprocessed entries</i></a>)<br>\n";
-		echo "(<a href=\"moderation.php?view=approved\"><i>view approved entries</i></a>)<br>\n";
-		echo "(<a href=\"moderation.php?view=denied\"><i>view denied entries</i></a>)<br>\n";
-		echo "<br><br><br><a href=\"generate.php\" onclick=\"return confirmation()\"><b>Push Changes to bibTeX File</b></a>";
-		echo "</div>\n";
-		echo "<div id=\"main\">\n";
-		echo "<h1><u>Edit Entry</u></h1>\n";
-		echo "<form action=\"update.php\" method=\"post\">\n";
-		echo "<input type=\"hidden\" name=\"originalkey\" value=\"$key\">\n";
-		echo "Peer:<br> <input type=\"text\" name=\"peer\" value=\"$peer\"><br>\n";
-		echo "First Author:<br> <input type=\"text\" name=\"firstauthor\" value=\"$firstauthor\"><br>\n";
-		echo "Author:<br> <input type=\"text\" name=\"author\" value=\"$author\"><br>\n";
-		echo "Pubtype:<br> <input type=\"text\" name=\"pubtype\" value=\"$pubtype\"><br>\n";
-		echo "Key<br> <input type=\"text\" name=\"pubkey\" value=\"$key\"><br>\n";
-		echo "Email<br> <input type=\"text\" name=\"email\" value=\"$email\"><br>\n";
-		echo "List<br> <input type=\"text\" name=\"list\" value=\"$list\"><br>\n";
-		echo "Title<br> <input type=\"text\" name=\"title\" value=\"$title\"><br>\n";
-		echo "Year<br> <input type=\"text\" name=\"year\" value=\"$year\"><br>\n";
-		echo "URL<br> <input type=\"text\" name=\"url\" value=\"$url\"><br>\n";
-		echo "Journal<br> <input type=\"text\" name=\"journal\" value=\"$journal\"><br>\n";
-		echo "Volume<br> <input type=\"text\" name=\"volume\" value=\"$volume\"><br>\n";
-		echo "Pages<br> <input type=\"text\" name=\"pages\" value=\"$pages\"><br>\n";
-		echo "Editors<br> <input type=\"text\" name=\"editors\" value=\"$editors\"><br>\n";
-		echo "Booktitle<br> <input type=\"text\" name=\"booktitle\" value=\"$booktitle\"><br>\n";
-		echo "Address<br> <input type=\"text\" name=\"address\" value=\"$address\"><br>\n";
-		echo "School<br> <input type=\"text\" name=\"school\" value=\"$school\"><br>\n";
-		echo "Institution<br> <input type=\"text\" name=\"institution\" value=\"$institution\"><br>\n";
-		echo "Organization<br> <input type=\"text\" name=\"organization\" value=\"$organization\"><br>\n";
-		echo "Month<br> <input type=\"text\" name=\"month\" value=\"$month\"><br>\n";
-		echo "Publisher<br> <input type=\"text\" name=\"publisher\" value=\"$publisher\"><br>\n";
-		echo "Note<br> <input type=\"text\" name=\"note\" value=\"$note\"><br>\n";
-		echo "<br><input type=\"submit\" value=\"update\"></form>\n</div>\n</body>\n</html>";
+		} ?>
+		<!DOCTYPE html>
+		<html>
+		<head>
+			<link type="text/css" rel="stylesheet" href="style.css"></link>
+			<script type="text/javascript" src="moderation.js"></script>
+			<title>Moderation</title>
+		</head>
+		<body>
+			<div id="sidebar">
+				You are logged in as <?php echo .$_SESSION["login"]; ?>... (<a href="logout.php"><i>logout</i></a>)<br><br>
+				(<a href="moderation.php"><i>view unprocessed entries</i></a>)<br>
+				(<a href="moderation.php?view=approved"><i>view approved entries</i></a>)<br>
+				(<a href="moderation.php?view=denied"><i>view denied entries</i></a>)<br>
+				<br><br><br>
+				<a href="generate.php" onclick="return confirmation()"><b>Push Changes to bibTeX File</b></a>
+			</div>
+			<div id="main">
+				<h1>Edit Entry</h1>
+				<form action="update.php" method="post">
+					<input type="hidden" name="originalkey" value="<?php echo $key; ?>">
+					Peer:<br> 
+					<input type="text" name="peer" value="$peer"><br>
+					First Author:<br> 
+					<input type="text" name="firstauthor" value="<?php echo $firstauthor; ?>"><br>
+					Author:<br> 
+					<input type="text" name="author" value="<?php echo $author; ?>"><br>
+					Pubtype:<br>
+					<input type="text" name="pubtype" value="<?php echo $pubtype; ?>"><br>
+					Key<br> 
+					<input type="text" name="pubkey" value="$key"><br>
+					Email<br> <input type="text" name="email" value="<?php echo $email; ?>"><br>
+					List<br> <input type="text" name="list" value="<?php echo $list; ?>"><br>
+					Title<br> <input type="text" name="title" value="<?php echo $title; ?>"><br>
+					Year<br> <input type="text" name="year" value="<?php echo $year; ?>"><br>
+					URL<br> <input type="text" name="url" value="<?php echo $url; ?>"><br>
+					Journal<br> <input type="text" name="journal" value="<?php echo $journal; ?>"><br>
+					Volume<br> <input type="text" name="volume" value="<?php echo $volume; ?>"><br>
+					Pages<br> <input type="text" name="pages" value="<?php echo $pages; ?>"><br>
+					Editors<br> <input type="text" name="editors" value="<?php echo $editors; ?>"><br>
+					Booktitle<br> <input type="text" name="booktitle" value="<?php echo $booktitle; ?>"><br>
+					Address<br> <input type="text" name="address" value="<?php echo $address; ?>"><br>
+					School<br> <input type="text" name="school" value="<?php echo $school; ?>"><br>
+					Institution<br> <input type="text" name="institution" value="<?php echo $institution; ?>"><br>
+					Organization<br> <input type="text" name="organization" value="<?php echo $organization; ?>"><br>
+					Month<br> <input type="text" name="month" value="<?php echo $month; ?>"><br>
+					Publisher<br> <input type="text" name="publisher" value="<?php echo $publisher; ?>"><br>
+					Note<br> <input type="text" name="note" value="<?php echo $note; ?>"><br><br>
+					<input type="submit" value="update">
+				</form>
+			</div>
+		</body>
+		</html>
 	}
 	else{
 		header( 'Location: moderation.php' ) ;

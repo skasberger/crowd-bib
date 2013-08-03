@@ -5,7 +5,7 @@
  *
  */
 
-include 'config-bib.php';
+include 'config-wordpress.php';
 
 function display($title, $list, $table_name){
 	$query = "SELECT * FROM $table_name WHERE approved = 'true' AND list = '$list' ORDER BY author ASC";	

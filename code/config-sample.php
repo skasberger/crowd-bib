@@ -2,7 +2,7 @@
 
 // set basic variables
 $list=""; // parameter for the citation bibliography type, filename of your .bib file, stored under list in the database for filtering
-$docroot = ""; // root folder of your docs
+$docroot = ""; // root folder of your docs, with ending "/"
 $email_adresses = "example@example.com"; // email adress for notifications of new submissions
 
 // The variables below control the bibs.  Make sure to escape quotes!
@@ -16,6 +16,7 @@ $db_name=""; // name of your database
 $username=""; // username to access your database
 $db_password=""; // password of the user
 $table_name=""; // tablename, where your data is stored in the database
+$piwik = ""; // code to embed piwik tracking
 
 // setup of the mysql connection
 $db_con=mysql_connect($db_host,$username,$db_password);

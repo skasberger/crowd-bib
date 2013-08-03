@@ -1,0 +1,187 @@
+
+
+body {
+	width: 1000px;
+	padding: 20px 30px;
+	font-family: arial;
+	font-size: 80%;
+}
+
+#main {
+	float:left;
+	width: 770px;
+}
+
+#sidebar {
+	width: 200px;
+	margin-left: 30px; 
+	float: right;
+}
+
+a {
+		color:black;
+}
+
+div.title { 
+	font-weight: bold;
+}
+
+div a {
+	color:black;
+}
+
+.required{
+	font-size: 120%;
+	color:red;
+}
+
+
+div input{
+	width: 300px;
+	height: 20px;
+}
+
+ol {
+	width:80%;
+}
+
+ol li {
+	padding:0px;
+	margin-left: 40px;
+}
+
+
+div.title { 
+	font-weight: bold;
+}
+
+span.grayed {
+	color: gray;
+}
+
+h1 {
+	font-size: medium;
+}
+
+
+/* column container */
+.colmask {
+	position:relative;	/* This fixes the IE7 overflow hidden bug */
+	clear:both;
+	float:left;
+	width:100%;			/* width of whole page */
+	overflow:hidden;		/* This chops off any overhanging divs */
+}
+
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+	float:left;
+	width:100%;			/* width of page */
+	position:relative;
+}
+
+.col1,
+.col2,
+.col3 {
+	float:left;
+	position:relative;
+	padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead 
+						only padding top and bottom is included here, make it whatever value you need */
+	overflow:hidden;
+}
+
+/* 3 Column settings */
+.threecol {
+	background:#eee;		/* right column background colour */
+}
+
+.threecol .colmid {
+	right:25%;			/* width of the right column */
+	background:#fff;		/* center column background colour */
+}
+
+.threecol .colleft {
+	right:50%;			/* width of the middle column */
+	background:#f4f4f4;	/* left column background colour */
+}
+
+.threecol .col1 {
+	width:46%;			/* width of center column content (column width minus padding on either side) */
+	left:102%;			/* 100% plus left padding of center column */
+}
+
+.threecol .col2 {
+	width:21%;			/* Width of left column content (column width minus padding on either side) */
+	left:31%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
+}
+
+.threecol .col3 {
+	width:21%;			/* Width of right column content (column width minus padding on either side) */
+	left:85%;			/* Please make note of the brackets here:
+						(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
+}
+
+#search-wrap input{
+	width:400px; 
+	font-size:16px; 
+	color:#999999; 
+	padding:6px; 
+	border:solid 1px #999999;
+}
+
+.threecol .col2 input {
+	width: 180px;
+}
+
+.threecol .col3 input {
+	width: 180px;
+}
+
+.threecol .col3 #submit {
+	width: 100px;
+	padding: 5px; 
+	height: auto;
+}
+
+#results {
+	width:260px; 
+	border:solid 1px #DEDEDE; 
+	display:none;
+}
+
+#results ul, #results li {
+	padding:0; 
+	margin:0; 
+	border:0; 
+	list-style:none;
+}
+
+#results li {
+	border-top:solid 1px #DEDEDE;}
+
+#results li a {
+	display:block; 
+	padding:4px; 
+	text-decoration:none; 
+	color:#000000; 
+	font-weight:bold;
+}
+
+#results li a small {
+	display:block; 
+	text-decoration:none; 
+	color:#999999; 
+	font-weight:normal;
+}
+
+#results li a:hover {
+	background:#FFFFCC;
+}
+
+#results ul {
+	padding:6px;
+}
+
+

@@ -16,7 +16,6 @@ CREATE TABLE `TABLENAME` (
   `journal` varchar(255) NOT NULL,
   `volume` varchar(255) NOT NULL,
   `pages` varchar(255) NOT NULL,
-  `license` varchar(255) NOT NULL,
   `editors` varchar(255) NOT NULL,
   `book_title` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -26,5 +25,6 @@ CREATE TABLE `TABLENAME` (
   `month` varchar(255) NOT NULL,
   `publisher` varchar(255) NOT NULL,
   `note` varchar(255) NOT NULL,
-  `pubdate` varchar(255) NOT NULL
-)
+  `pubdate` varchar(255) NOT NULL,
+  `openaccess` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8

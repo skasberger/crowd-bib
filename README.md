@@ -1,45 +1,71 @@
 crowd bib
 ==============================
 
-Basecily, this webservice is a form to collect bibliographic data within a scientific discipline via crowdsourcing. The collected data is shared as open data and also the sourcecode is openly available.
+Basicely, this webservice is a form to collect bibliographic data within a scientific discipline via the crowd. The collected data is shared as open data and also the sourcecode is openly available.
 
-This service offers a form where you can enter the data, a list to present the collection and an login section to edit the submissions.
+This service offers a submission form where you can enter the data, a list to present the collection, an about page and a own admin section to edit the submissions.
 
 The sourcecode is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
-The data is licensed under the []().
+The data is licensed under [Creative Commons BY](https://creativecommons.org/licenses/by/3.0/at/).
 
 <!--**[WEBPAGE](WEBPAGEURL)**-->
 
 ## DEPLOY
 
-After 5min, the deployment to your site should be finished.
+After 10min, the deployment to your site should be finished.
 
-**Prerequisites**: A mySQL database and a webserver running php. 
+**Prerequisites**
 
-**1: Download repo:** Download this repo to your webspace with php running. 
+A mySQL database and a webserver running php. 
 
-**2: Create a database:** Go into your admin area and create a mySQL database. For this, you only have to change TABLENAME inside the ```create.sql``` template to your needs. 
+**1: Download repo**
 
-**3: Configure your config.php:** Copy ```config-sample.php`` and rename it to ```config.php```. Then open it and - in support of the comments - add your paramters.
+Download this repo to your webspace with php running. 
 
-**4: Configure config-user.php** Copy ```config-user-sample.php and rename it to ```config-user.php. Finally, enter your login data as you wish.
+**2: Create a database**
 
-**Optional: Wordpress Template:** Copy the ```config.php``` and rename it to ```config-bib.php. Then copy the ```config-bib.php``` and the ```template-bib.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
+Go into your admin area and create a mySQL database. For this, you only have to change TABLENAME inside the ```create.sql``` template to your wish. 
+
+**3: Configure your config.php**
+
+Copy ```config-sample.php`` and rename it to ```config.php```. Then open it and add your paramters in support of the comments.
+
+**4: Configure config-user.php**
+
+Copy ```config-user-sample.php and rename it to ```config-user.php. Enter your login data.
+
+**Optional: Wordpress Template**
+
+Copy the ```config.php``` and rename it to ```config-wordpress.php. Then copy the ```config-wordpress.php``` and the ```template-wordpress.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
 
 ## DOCUMENTATION
 ### General
-[Danah Boyd](http://www.danah.org/) and [Dylan Field](https://twitter.com/dylanjfield) developed the initial version of this crowd-sourced bibliography for research on [Social Network Sites](http://www.danah.org/researchBibs/sns.php) and [Twitter](http://www.danah.org/researchBibs/twitter.php). Danah also provided the source code. 
+Thanks a lot to [Danah Boyd](http://www.danah.org/) and [Dylan Field](https://twitter.com/dylanjfield), who developed the initial version of this crowd-sourced bibliography for research on [Social Network Sites](http://www.danah.org/researchBibs/sns.php) and [Twitter](http://www.danah.org/researchBibs/twitter.php). Danah provided the free source code, which [Stefan Kasberger](http://www.github.com/skasberger) built on and added some minor changes to make it more flexible in deployment and for use in wordpress.
 
-[Stefan Kasberger](http://www.github.com/skasberger) built on this and added some minor changes to make it more flexible in deployment.
-
-Feel free to make your own bibliography for your own research interests. The project was started during the fellowship of [Julian Ausserhofer](http://ausserhofer.net) at [Alexander von Humboldt Institute for Internet and Society](http://hiig.de/).
+Feel free to make your own bibliography for your own field of interest. The project was started during the fellowship of [Julian Ausserhofer](http://ausserhofer.net) at [Alexander von Humboldt Institute for Internet and Society](http://hiig.de/).
 
 ## ToDo
+- improve wordpress template: sort by year
+- implement open access to bibtex generation
+- link other crowdsourced bibliography projects
+- provide RSS feed
 
 ## CHANGELOG
-### Version x.y - yyyy-mm-dd
+### Version 0.1 - 2013-08-03
+- add style.css
+- renamed files to flexible structure
+- adapt code structure for more flexibility
+- add config-user.php for login data
+- add create.sql for easy table creation in mySQL
+- add wordpress page template
+- clean up of code
+- add .gitignore
+- add documentation: README.md
+- add LICENSE
 
-
+<!--
 ## SOURCES
+
+-->
 
