@@ -33,11 +33,11 @@ Copy ```config-sample.php`` and rename it to ```config.php```. Then open it and 
 
 **4: Configure config-user.php**
 
-Copy ```config-user-sample.php and rename it to ```config-user.php. Enter your login data.
+Copy ```config-user-sample.php and rename it to ```config-user.php```. Enter your login data.
 
 **Optional: Wordpress Template**
 
-Copy the ```config.php``` and rename it to ```config-wordpress.php. Then copy the ```config-wordpress.php``` and the ```template-wordpress.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
+Copy the ```config.php``` and rename it to ```config-wordpress.php```. Then copy the ```config-wordpress.php``` and the ```template-wordpress.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
 
 ## DOCUMENTATION
 ### General
