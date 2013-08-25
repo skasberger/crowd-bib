@@ -26,7 +26,7 @@ if (!isset($_SESSION['initiated']))
 <body onLoad="onLoadScript()">
 	<div align="center">
 		<h1><u>Submit New Citation</u></h1>
-		<a href="bib.php">Data Journalism</a>
+		<a href="http://b00mbl1tz.weblog.mur.at/ddjbib/">See bibliography</a>
 	</div>
 	<div class="colmask threecol">
 		<div class="colmid">
@@ -108,19 +108,27 @@ if (!isset($_SESSION['initiated']))
 						<select name="peer" id="peer">
 							<option value="true">yes</option>
 							<option value="false">no</option>
-						</select><br>
+						</select>
+						<br><br>
+
+						<b>Is it open access?</b><span class="required">*</span> (<a href="http://access.okfn.org/definition/" title"Budapest Open Access Initiative">BOAI</a>)<br>
+						<select id="openaccess" name="openaccess">
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+						<br><br>
 						
 						<input type="hidden" name="key" id="key"></input>
 						<input type="hidden" name="firstAuthor" id="firstAuthor"></input>
 						<input type="hidden" name="author" id="author">
 						
-						<p><b>Author Name</b>
+						<p><b>Author</b>
 						<span class="required">*</span><br>
-						<i>(click "Add Author" after entering each author name)</i><br>
+						<i>(example "Meyer, Philip", click "Add Author" after entering each author name)</i><br>
 						<input type="text" name="author1" id="newAuthor" onkeyup="autosuggest()">							
 						<div id="results"></div>
 						<a href="javascript:addAuthor()">Add Author</a></p>
-						
+
 						<span id="booktitle">
 							<b>Book Title</b>
 							<span class="required">*</span><br>
@@ -170,15 +178,9 @@ if (!isset($_SESSION['initiated']))
 							<input name="pages" id="pagesValue" type="text" onkeyup="refreshPreview()"></input><br><br>
 						</span>
 
-						<b>Open Access?</b><span class="required">*</span> (<a href="http://access.okfn.org/definition/" title"Budapest Open Access Initiative">BOAI</a>)<br>
-						<select id="openaccess" name="openaccess">
-							<option value="yes">Yes</option>
-							<option value="no">No</option>
-						</select>
-						<br><br>
-
 						<span id="editors">
 							<b>Editors</b><br>
+							<i>(example "Jonathan Gray, Liliana Bounegru & Lucy Chambers")</i><br>
 							<input name="editors" id="editorsValue" type="text" onkeyup="refreshPreview()"></input><br><br>
 						</span>
 						
@@ -188,7 +190,7 @@ if (!isset($_SESSION['initiated']))
 						</span>
 						
 						<span id="school">
-							<b>School</b><br>
+							<b>University</b><br>
 							<input name="school" id="schoolValue" type="text" onkeyup="refreshPreview()"></input><br><br>
 						</span>
 						
@@ -205,6 +207,7 @@ if (!isset($_SESSION['initiated']))
 						
 						<span id="month">
 							<b>Month</b><br>
+							<i>(e.g. "September")</i><br>
 							<input name="month" id="monthValue" type="text" onkeyup="refreshPreview()"></input><br><br>
 						</span>
 						
@@ -213,6 +216,11 @@ if (!isset($_SESSION['initiated']))
 							<input name="publisher" id="publisherValue" type="text" onkeyup="refreshPreview()"></input><br><br>
 						</span>
 						
+						<span id="doi">
+							<b>doi</b><br>
+							<input name="doi" id="doi" type="text" onkeyup="refreshPreview()"></input><br><br>
+						</span>
+
 						<span id="note">
 							<b>Notes</b><br>
 							<textarea rows ="4" cols="50" name="note" id="noteValue" type="text" onkeyup="refreshPreview()"></textarea><br><br>
@@ -225,7 +233,7 @@ if (!isset($_SESSION['initiated']))
 						
 						<b>Your Email</b>
 						<span class="required">*</span><br>
-						<input name="email" type="text"></input><br><br>
+						<input id="email" name="email" type="text"></input><br><br>
 					</div>
 					<div class = "col3">
 						<h1>Step 3</h1>
@@ -249,10 +257,9 @@ if (!isset($_SESSION['initiated']))
 						<div>
 							<h2 style="margin-top:200px;">Navigate</h2>
 							<ul>
-								<li><a href="index.php">About</a></li>
-								<li><a href="bib.php">View</a></li>
-								<li><a href="<?php echo $list; ?>.bib">Get bibTeX</a></li>
-								<li><a href="http://www.github.com/skasberger/crowd-bib">Sourcecode @ GitHub</a></li>
+								<li><a href="http://b00mbl1tz.weblog.mur.at/ddjbib/">See bibliography</a></li>
+								<li><a href="<?php echo $list; ?>.bib">Get the BibTeX file with all citations</a></li>
+								<li><a href="http://www.github.com/skasberger/crowd-bib">Make your own crowdsourced bibliography</a></li>
 							</ul>
 						</div>	
 					</div>

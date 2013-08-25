@@ -20,19 +20,21 @@ function redisplayForm(){
 		setElementVisibility(document.getElementById("pages"), true);
 	}
 	else if(document.getElementById("pubtype").value == "book"){
-		setElementVisibility(document.getElementById("pages"), true);
+		setElementVisibility(document.getElementById("pages"), false);
+		setElementVisibility(document.getElementById("address"), true);
 		setElementVisibility(document.getElementById("publisher"), true);			
 	}
 	else if(document.getElementById("pubtype").value == "conference"){
 		setElementVisibility(document.getElementById("conftitle"), true);			
 		setElementVisibility(document.getElementById("address"), true);			
 		setElementVisibility(document.getElementById("month"), true);
-		}
+	}
 	else if(document.getElementById("pubtype").value == "inbook"){
 		setElementVisibility(document.getElementById("booktitle"), true);			
 		setElementVisibility(document.getElementById("editors"), true);			
 		setElementVisibility(document.getElementById("publisher"), true);
 		setElementVisibility(document.getElementById("pages"), true);
+		setElementVisibility(document.getElementById("address"), true);
 	}
 	else if(document.getElementById("pubtype").value == "inproceedings"){
 		setElementVisibility(document.getElementById("proctitle"), true);
@@ -45,16 +47,18 @@ function redisplayForm(){
 		setElementVisibility(document.getElementById("address"), true);
 	}
 	else if(document.getElementById("pubtype").value == "misc"){
-		// No new fields for misc.
+		setElementVisibility(document.getElementById("address"), true);
 	}
 	else if(document.getElementById("pubtype").value == "phdthesis"){
 		setElementVisibility(document.getElementById("school"), true);
 		setElementVisibility(document.getElementById("address"), true);
-		}
+	}
 	else if(document.getElementById("pubtype").value == "techreport"){
 		setElementVisibility(document.getElementById("institution"), true);
+		setElementVisibility(document.getElementById("address"), true);
 	}
 	else if(document.getElementById("pubtype").value == "unpublished"){
+		setElementVisibility(document.getElementById("address"), true);
 	}
 }
 
@@ -124,6 +128,7 @@ function hideAll(){
 	setElementVisibility(document.getElementById("publisher"), false);
 	setElementVisibility(document.getElementById("conftitle"), false);
 	setElementVisibility(document.getElementById("proctitle"), false);
+	setElementVisibility(document.getElementById("address"), false);
 }
 
 function resetAuthors(){
@@ -335,7 +340,7 @@ var http = createObject();
 /* -------------------------- */
 /* SEARCH					 */
 /* -------------------------- */
-function autosuggest() {
+function autosuggest(){
 	q = document.getElementById('newAuthor').value;
 	// Set the random number to add to URL request
 	nocache = Math.random();
@@ -349,8 +354,9 @@ function autosuggestReply() {
 		var response = http.responseText;
 		e = document.getElementById('results');
 		if(response!=""){
+			if(response!="<ul></ul>"){
 			e.innerHTML=response;
-			e.style.display="block";
+			e.style.display="block";}
 		} else {
 			e.style.display="none";
 		}
@@ -374,7 +380,11 @@ function generateKey(){
 }
 
 function noSpam(){
-	if(document.getElementById("nospam").value == "open knowledge"){
-		document.getElementById("submit").disabled = false;
+	if (document.getElementById("email").value != null && document.getElementById("title").value != null && document.getElementById("year").value != null && authors.length > 0) {
+		if(document.getElementById("nospam").value == "open knowledge" ) {
+			document.getElementById("submit").disabled = false;
+		}
+	}else{ 
+		alert("Missing fields!");
 	}
 }

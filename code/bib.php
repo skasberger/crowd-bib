@@ -3,7 +3,6 @@
 session_start();
 include 'config.php';
 include 'display.php';
-$pagetitle = "Research on Social Network Sites";
 
 ?>
 
@@ -19,17 +18,17 @@ $pagetitle = "Research on Social Network Sites";
 </head>
 <body>
 	<?php
-	display($title, $list, $table_name);
+	display($page_title, $list, $table_name);
 	?>
 	<div id="sidebar">
 		<h2>Navigation</h2>
 		<ul>
-			<li><b><a href="index.php">About</a></b><br></li>
-			<li><b><a href="submit.php">Submit new citation</a></b><br></li>
+			<li><b><a href="submit.php">Submit new citation</a></b></li>
+			<li><b><a href="http://b00mbl1tz.weblog.mur.at/ddjbib/">DDJ Bib</a></b></li>
 			<?php
 			if($show_bibTeX){
 				?>
-				<li><b><a href="<?php echo $list; ?>.bib">bibTeX file</a></b><br></li>
+				<li><b><a href="<?php echo $list; ?>.bib">bibTeX file</a></b></li>
 				<?
 			}
 			?>

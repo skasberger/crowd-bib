@@ -20,7 +20,8 @@ function createBibTeXFile($list, $table_name){
 	$f = fopen($targetfile, "w") or die ("cannot open file");
 	while ($row = mysql_fetch_object($result)){
 		fwrite($f,"@".$row->pubtype."{ ".$row->pubkey.",\n");
-		fwrite($f,"peer = \"".$row->peer."\",\n");
+		fwrite($f,"peerreview = \"".$row->peer."\",\n");
+		fwrite($f,"openaccess = \"".$row->openaccess."\",\n");
 		fwrite($f,"firstauthor = \"".$row->first_author."\",\n");
 		fwrite($f,"title = \"".$row->title."\",\n");
 		fwrite($f,"author = \"".$row->author."\",\n");

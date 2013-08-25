@@ -5,21 +5,21 @@
  *
  */
 
-include 'config-wordpress.php';
+include 'config-crowdbib.php';
 
-function display($title, $list, $table_name){
-	$query = "SELECT * FROM $table_name WHERE approved = 'true' AND list = '$list' ORDER BY author ASC";	
+function display($list, $table_name){
+	$query = "SELECT * FROM $table_name WHERE approved = 'true' AND list = '$list' ORDER BY author ASC";
 	$result = mysql_query($query) or die (mysql_error());
+	echo $result;
 	echo "<div id=\"list\">\n";
-	echo "<h1><u>$title</u></h1>\n";
 	echo "<ol>\n";
 	while ($row = mysql_fetch_object($result)){
 		echo "<li>\n";
-		$peer = $row->peer;
-		$key = $row->pubkey;
 		$pubtype = $row->pubtype;
 		$email = $row->email;
 		$list = $row->list;
+		$key = $row->pubkey;
+		$peer = $row->peer;
 		$title = $row->title;
 		$year = $row->year;
 		$url = $row->url;
@@ -34,8 +34,8 @@ function display($title, $list, $table_name){
 		$organization = $row->organization;
 		$month = $row->month;
 		$publisher = $row->publisher;
-		$insitution = $row->institution;
 		$note = $row->note;
+		$doi = $row->doi;
 
 		$preview = "";
 		$authors = $row->author;
@@ -43,6 +43,7 @@ function display($title, $list, $table_name){
 		$authorArray = explode(" and ", $authors); //multiple authors 
 		$authorPreview = "";
 		//echo"<div style=\"width:80%\">";
+
 		for ($i=0;$i<count($authorArray);$i++){
 			if($i<count($authorArray)-1){
 				$authorPreview = $authorPreview.$authorArray[$i].", ";
@@ -55,10 +56,16 @@ function display($title, $list, $table_name){
 			}
 		}
 		$preview = $preview.$authorPreview."."; // authors
-		$preview = $preview." (".$year.")."; // year
+		$preview = $preview." (".$year; // year
+		if($month != ""){
+			$preview = $preview.", ".$month;
+		}
+		$preview = $preview.")."; // year
+		
 		if($peer == "false"){ // peer review
 			$preview = $preview."<font color=\"gray\">";
 		}
+		
 		// URL
 		if($url != "none"){
 			$preview = $preview." <b><a href=\"".$url."\">".$title."</a>.</b>"; // title w/ url
@@ -84,24 +91,53 @@ function display($title, $list, $table_name){
 		if($editors != ""){
 			$preview = $preview."In ".$editors." (Eds.),";
 		}
-
 		if($booktitle != ""){
 			$preview = $preview." <i>".$booktitle."</i>.";
 			if($pages != ""){
-				$preview = $preview." (pp. ".$pages.").";
-			}
-			if($address != ""){
-				$preview = $preview.$address;
+				$preview = $preview." (pp. ".$pages.") .";
 			}
 			if($school != ""){
 				$preview = $preview." ".$school.".";
 			}
-			if($month != ""){
-				$preview = $preview." ".$month.".";
+			if($address != ""){
+				$preview = $preview." ".$address;
 			}
 			if($publisher != ""){
-				$preview = $preview." ".$publisher.".";
+				$preview = $preview.":".$publisher.".";
 			}
+		}
+
+		switch ($pubtype){
+			case "misc":
+				$preview = $preview." ".$address.".";
+				break;
+			case "techreport":
+				$preview = $preview." ".$address.".";
+				break;
+			case "unpublished":
+				$preview = $preview." ".$address.".";
+				break;
+		}
+
+/*
+		if($booktitle != ""){
+			$preview = $preview." <i>".$booktitle."</i>.";
+			if($pages != ""){
+				$preview = $preview." (pp. ".$pages.") .";
+			}
+			if($school != ""){
+				$preview = $preview." ".$school.".";
+			}
+			if($address != ""){
+				$preview = $preview." ".$address;
+			}
+			if($publisher != ""){
+				$preview = $preview.":".$publisher.".";
+			}
+		}
+*/
+		if($doi != ""){
+			$preview = $preview." doi:".$doi."";
 		}
 
 		if($note != ""){
@@ -116,7 +152,7 @@ function display($title, $list, $table_name){
 				$preview = $preview."<font color=\"royalblue\"> (journal article) </font>";
 				break;
 			case "book":
-				$preview = $preview."<font color=\"olivedrab\"> (book chapter) </font>";
+				$preview = $preview."<font color=\"olivedrab\"> (book) </font>";
 				break;
 			case "inbook":
 				$preview = $preview."<font color=\"olivedrab\"> (book chapter) </font>";
@@ -125,7 +161,7 @@ function display($title, $list, $table_name){
 				$preview = $preview."<font color=\"red\"> (conference paper) </font>";
 				break;
 			case "mastersthesis":
-				$preview = $preview."<font color=\"mediumvioletred\"> (mastersthesis) </font>";
+				$preview = $preview."<font color=\"mediumvioletred\"> (master's thesis) </font>";
 				break;
 			case "misc":
 				$preview = $preview."<font color=\"pink\"> (misc) </font>";
@@ -146,9 +182,8 @@ function display($title, $list, $table_name){
 	}
 	echo "</ol>\n";
 	echo "</div>\n";
-}
-
-get_header(); ?>
+} 
+?>
 
 <style type="text/css">
 	.singular .entry-header, 
@@ -178,6 +213,8 @@ get_header(); ?>
 }
 </script>
 
+<?php get_header(); ?>
+
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
 
@@ -186,22 +223,18 @@ get_header(); ?>
 			<div class="entry-content">
 				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); 
 				session_start();
-				include 'config-wordpress.php';
-				$title = "Bibliography of Research on Data Driven Journalism";
-				$list = "DDJ"; 
+
 				?>
 				<?php
-				display($title, $list, $table_name);
+				display($list, $table_name);
 				?>
 			</div><!-- .entry-content -->
-
-			<?php comments_template( '', true ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
-<?php //get_sidebar(); ?>
+<?php get_sidebar('crowdbib'); ?>
 <?php get_footer(); ?>
 

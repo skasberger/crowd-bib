@@ -4,37 +4,12 @@ session_start();
 include 'config.php';
 
 function check_email_address($email) {
-	// First, we check that there's one @ symbol, 
-	// and that the lengths are right.
-	if (!ereg("^[^@]{1,64}@[^@]{1,255}$", $email)) {
-		// Email invalid because wrong number of characters 
-		// in one section or wrong number of @ symbols.
-		return false;
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	    // invalid emailaddress
+	    return false;
+	}else {
+		return true;
 	}
-	// Split it into sections to make life easier
-	$email_array = explode("@", $email);
-	$local_array = explode(".", $email_array[0]);
-	for ($i = 0; $i < sizeof($local_array); $i++) {
-		if(!ereg("^(([A-Za-z0-9!#$%&'*+/=?^_`{|}~-][A-Za-z0-9!#$%&↪'*+/=?^_`{|}~\.-]{0,63})|(\"[^(\\|\")]{0,62}\"))$",$local_array[$i])) {
-			return false;
-		}
-	}
-	// Check if domain is IP. If not, 
-	// it should be valid domain name
-	if (!ereg("^\[?[0-9\.]+\]?$", $email_array[1])) {
-		$domain_array = explode(".", $email_array[1]);
-		
-		if (sizeof($domain_array) < 2) {
-			return false; // Not enough parts to domain
-		}
-		
-		for ($i = 0; $i < sizeof($domain_array); $i++) {
-			if(!ereg("^(([A-Za-z0-9][A-Za-z0-9-]{0,61}[A-Za-z0-9])|↪([A-Za-z0-9]+))$",$domain_array[$i])) {
-				return false;
-			}
-		}
-	}
-	return true;
 }
 
 //
@@ -74,6 +49,7 @@ $note = mysql_real_escape_string($_POST["note"]);
 $email = mysql_real_escape_string($_POST["email"]);
 $nospam = mysql_real_escape_string($_POST["nospam"]);
 $key = mysql_real_escape_string($_POST["key"]);
+$doi = mysql_real_escape_string($_POST["doi"]);
 
 $errors = array();
 
@@ -145,24 +121,30 @@ else{
 }
 
 // format date of publication
+$timestamp = time();
 $pubdate = date('D, d M Y H:i:s O', strtotime($timestamp));
 
 // insert variables into database
 if($errors == array()){
-	$query = "INSERT INTO $table_name VALUES ('$pubtype', '$email', '$peer', '$list','$key', '$peer', '$firstAuthor', '$title', '$author', '$year', '$url', '$journal','$volume', '$pages', '$editors', '$booktitle', '$address', '$school', '$institution', '$organization', '$month', '$publisher', '$note', CURDATE(), '$openaccess')";
+	$query = "INSERT INTO $table_name VALUES ('$pubtype', '$email', '$peer', '$list','$key', '$peer', '$firstAuthor', '$title', '$author', '$year', '$url', '$journal','$volume', '$pages', '$editors', '$booktitle', '$address', '$school', '$institution', '$organization', '$month', '$publisher', '$note', CURDATE(), '$openaccess', '$doi')";
+
 	$result = mysql_query($query) or die(mysql_error());
-	
+
 	if($result == true){
 		// send email
 		$sendto = $email_adresses;
 		$subject = "Entry for ".$list." list";
 		$body = "New citation from: ".$email."\n\nAuthor: ".$firstAuthor."\nTitle: ".$title."\n\nLogin ($docroot/login.php) to approve!";
-		$headers = "From: ".$email."\r\n"."Reply-To: ".$email."\r\n".'X-Mailer: PHP/'.phpversion();
+		$header = "From: ".$email."\r\n".
+			"Reply-To: ".$email."\r\n".
+			'X-Mailer: PHP/'.phpversion();
+		mail($sendto, $subject, $body, $header);
 		$_SESSION["success"]= true; 
 	}
 	else {
 		$_SESSION["success"]= "error";  
 	}
+	header('Location: '.$docroot.'generate.php');
 	header('Location: '.$docroot.'submit.php');
 }
 else {

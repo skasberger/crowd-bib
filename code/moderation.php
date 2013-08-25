@@ -85,9 +85,9 @@ if($_SESSION["login"]){
 			$organization = $row->organization;
 			$month = $row->month;
 			$publisher = $row->publisher;
-			$insitution = $row->institution;
 			$note = $row->note;
 			$openaccess = $row->openaccess;
+			$doi = $row->doi;
 		
 			$preview = "";
 			$authors = $row->author;
@@ -109,7 +109,11 @@ if($_SESSION["login"]){
 				}
 			}
 			$preview = $preview.$authorPreview."."; // authors
-			$preview = $preview." (".$year.")."; // year
+			$preview = $preview." (".$year; // year
+			if($month != ""){
+				$preview = $preview.", ".$month;
+			}
+			$preview = $preview.")."; // year
 			
 			if($url != "none"){
 				$preview = $preview." <b><a href=\"".$url."\">".$title."</a>.</b>"; // title w/ url
@@ -152,6 +156,12 @@ if($_SESSION["login"]){
 			if($month != ""){
 				$preview = $preview." ".$month.".";
 			}
+			if($openaccess != ""){
+				$preview = $preview." openaccess:".$openaccess.".";
+			}
+			if($doi != ""){
+				$preview = $preview." doi:".$doi.".";
+			}
 			if($booktitle != ""){
 				if($publisher != ""){
 					$preview = $preview." ".$publisher.".";
@@ -162,7 +172,7 @@ if($_SESSION["login"]){
 			}
 			echo "<p>&nbsp;".$preview."</p>\n";
 			echo "</div><br>\n";
-			echo "(<a href=\"moderation.php?key=".$key."&action=approve\"><i>approve</i></a>) | (<a href=\"moderation.php?key=".$key."&action=deny\"><i>deny</i></a>) | (<a href=\"edit.php?key=".$key."\"><i>edit</i></a>)<br><br>\n";
+			echo "(<a href=\"moderation.php?key=".$key."&action=approve\"><i>approve</i></a>) | (<a href=\"moderation.php?key=".$key."&action=deny\"><i>deny</i></a>) | (<a href=\"edit.php?key=".$key."\"><i>edit</i></a> | (<a href=\"delete.php?key=".$key."\"><i>delete</i></a>)<br><br>\n";
 		}
 	echo "</ol>\n";
 	echo "</div>\n";

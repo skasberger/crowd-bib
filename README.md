@@ -27,17 +27,17 @@ Download this repo to your webspace with php running.
 
 Go into your admin area and create a mySQL database. For this, you only have to change TABLENAME inside the ```create.sql``` template to your wish. 
 
-**3: Configure your config.php**
+**3: Setup your config.php**
 
-Copy ```config-sample.php`` and rename it to ```config.php```. Then open it and add your paramters in support of the comments.
+Copy ```config-sample.php``` and rename it to ```config.php```. Then open it and add your paramters in support of the comments.
 
-**4: Configure config-user.php**
+**4: Setup config-user.php**
 
-Copy ```config-user-sample.php and rename it to ```config-user.php```. Enter your login data.
+Copy ```config-user-sample.php``` and rename it to ```config-user.php```. Enter your login data.
 
 **Optional: Wordpress Template**
 
-Copy the ```config.php``` and rename it to ```config-wordpress.php```. Then copy the ```config-wordpress.php``` and the ```template-wordpress.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
+Copy the ```config.php``` and rename it to ```config-crowdbib.php```. Then copy the ```config-crowdbib.php```, ```template-crowdbib.php``` and ```sidebar-crowdbib.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
 
 ## DOCUMENTATION
 ### General
@@ -47,11 +47,17 @@ Feel free to make your own bibliography for your own field of interest. The proj
 
 ## ToDo
 - improve wordpress template: sort by year
-- implement open access to bibtex generation
-- link other crowdsourced bibliography projects
 - provide RSS feed
 
 ## CHANGELOG
+### Version 0.2 - 2013-08-26
+- add delete function
+- add wordpress theme
+- add email notification
+- improve list
+- add alert for submission sheet
+- add fields: doi, open access
+
 ### Version 0.1 - 2013-08-03
 - add style.css
 - renamed files to flexible structure

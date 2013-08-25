@@ -27,8 +27,8 @@ function display($title, $list, $table_name){
 		$organization = $row->organization;
 		$month = $row->month;
 		$publisher = $row->publisher;
-		$insitution = $row->institution;
 		$note = $row->note;
+		$doi = $row->doi;
 
 		$preview = "";
 		$authors = $row->author;
@@ -48,10 +48,16 @@ function display($title, $list, $table_name){
 			}
 		}
 		$preview = $preview.$authorPreview."."; // authors
-		$preview = $preview." (".$year.")."; // year
+		$preview = $preview." (".$year; // year
+		if($month != ""){
+			$preview = $preview.", ".$month;
+		}
+		$preview = $preview.")."; // year
+		
 		if($peer == "false"){ // peer review
 			$preview = $preview."<font color=\"gray\">";
 		}
+		
 		// URL
 		if($url != "none"){
 			$preview = $preview." <b><a href=\"".$url."\">".$title."</a>.</b>"; // title w/ url
@@ -81,20 +87,49 @@ function display($title, $list, $table_name){
 		if($booktitle != ""){
 			$preview = $preview." <i>".$booktitle."</i>.";
 			if($pages != ""){
-				$preview = $preview." (pp. ".$pages.").";
-			}
-			if($address != ""){
-				$preview = $preview.$address;
+				$preview = $preview." (pp. ".$pages.") .";
 			}
 			if($school != ""){
 				$preview = $preview." ".$school.".";
 			}
-			if($month != ""){
-				$preview = $preview." ".$month.".";
+			if($address != ""){
+				$preview = $preview." ".$address;
 			}
 			if($publisher != ""){
-				$preview = $preview." ".$publisher.".";
+				$preview = $preview.":".$publisher.".";
 			}
+		}
+
+		switch ($pubtype){
+			case "misc":
+				$preview = $preview." ".$address.".";
+				break;
+			case "techreport":
+				$preview = $preview." ".$address.".";
+				break;
+			case "unpublished":
+				$preview = $preview." ".$address.".";
+				break;
+		}
+
+		if($booktitle != ""){
+			$preview = $preview." <i>".$booktitle."</i>.";
+			if($pages != ""){
+				$preview = $preview." (pp. ".$pages.") .";
+			}
+			if($school != ""){
+				$preview = $preview." ".$school.".";
+			}
+			if($address != ""){
+				$preview = $preview." ".$address;
+			}
+			if($publisher != ""){
+				$preview = $preview.":".$publisher.".";
+			}
+		}
+
+		if($doi != ""){
+			$preview = $preview." doi:".$doi."";
 		}
 
 		if($note != ""){
@@ -109,7 +144,7 @@ function display($title, $list, $table_name){
 				$preview = $preview."<font color=\"royalblue\"> (journal article) </font>";
 				break;
 			case "book":
-				$preview = $preview."<font color=\"olivedrab\"> (book chapter) </font>";
+				$preview = $preview."<font color=\"olivedrab\"> (book) </font>";
 				break;
 			case "inbook":
 				$preview = $preview."<font color=\"olivedrab\"> (book chapter) </font>";
@@ -118,7 +153,7 @@ function display($title, $list, $table_name){
 				$preview = $preview."<font color=\"red\"> (conference paper) </font>";
 				break;
 			case "mastersthesis":
-				$preview = $preview."<font color=\"mediumvioletred\"> (mastersthesis) </font>";
+				$preview = $preview."<font color=\"mediumvioletred\"> (master's thesis) </font>";
 				break;
 			case "misc":
 				$preview = $preview."<font color=\"pink\"> (misc) </font>";

@@ -26,5 +26,6 @@ CREATE TABLE `TABLENAME` (
   `publisher` varchar(255) NOT NULL,
   `note` varchar(255) NOT NULL,
   `pubdate` varchar(255) NOT NULL,
-  `openaccess` varchar(255) NOT NULL
+  `openaccess` varchar(255) NOT NULL,
+  `doi` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8
