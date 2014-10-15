@@ -1,15 +1,15 @@
 crowd bib
 ==============================
 
-Basicely, this webservice is a form to collect bibliographic data within a scientific discipline via the crowd. The collected data is shared as open data and also the sourcecode is openly available.
+Crowd Bib is a form to collect bibliographic data within a scientific discipline via the crowd. The collected data is shared as open data and also the sourcecode is openly available.
 
-This service offers a submission form where you can enter the data, a list to present the collection, an about page and a own admin section to edit the submissions.
+It offers a submission form where you can enter the data, a list to present the collection, an about page and a own admin section to edit the submissions.
 
 The sourcecode is licensed under the [MIT License](http://opensource.org/licenses/MIT).
 
 The data is licensed under [Creative Commons BY](https://creativecommons.org/licenses/by/3.0/at/).
 
-<!--**[WEBPAGE](WEBPAGEURL)**-->
+### [DEMO: Bibliography of Research on Data Journalism](http://b00mbl1tz.weblog.mur.at/ddjbib/)
 
 ## DEPLOY
 

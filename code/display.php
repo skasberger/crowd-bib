@@ -105,7 +105,12 @@ function display($title, $list, $table_name){
 				$preview = $preview." ".$address.".";
 				break;
 			case "techreport":
-				$preview = $preview." ".$address.".";
+				if($address){
+					$preview = $preview." ".$institution." ".$address.".";	
+				}else{
+					$preview = $preview." ".$institution.".";	
+				}
+				
 				break;
 			case "unpublished":
 				$preview = $preview." ".$address.".";
