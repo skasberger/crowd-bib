@@ -94,7 +94,7 @@ if (!isset($_SESSION['initiated']))
 							<option value="article">article</option>
 							<option value="book">book</option>
 							<option value="inbook">book chapter</option>
-							<option value="conference">conference</option>
+							<option value="conference">conference proceeding</option>
 							<option value="inproceedings">inproceedings</option>
 							<option value="mastersthesis">master's thesis</option>
 							<option value="misc">misc</option>
