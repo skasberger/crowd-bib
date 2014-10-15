@@ -16,6 +16,7 @@ function check_email_address($email) {
 // get variables from form
 //
 $pubtype = mysql_real_escape_string($_POST["pubtype"]);
+
 // Check if inproceeding.  If so, change pubtype
 $firstAuthor = mysql_real_escape_string($_POST["firstAuthor"]);
 $author = mysql_real_escape_string($_POST["author"]);

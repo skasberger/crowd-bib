@@ -172,7 +172,16 @@ if($_SESSION["login"]){
 			}
 			echo "<p>&nbsp;".$preview."</p>\n";
 			echo "</div><br>\n";
-			echo "(<a href=\"moderation.php?key=".$key."&action=approve\"><i>approve</i></a>) | (<a href=\"moderation.php?key=".$key."&action=deny\"><i>deny</i></a>) | (<a href=\"edit.php?key=".$key."\"><i>edit</i></a> | (<a href=\"delete.php?key=".$key."\"><i>delete</i></a>)<br><br>\n";
+
+			if($_GET["view"] == "approved"){
+				echo "(<a href=\"edit.php?key=".$key."\"><i>edit</i></a> | (<a href=\"delete.php?key=".$key."\"><i>delete</i></a>)<br><br>\n";
+			}
+			else if($_GET["view"] == "denied"){
+				echo "(<a href=\"moderation.php?key=".$key."&action=approve\"><i>approve</i></a>) | (<a href=\"moderation.php?key=".$key."&action=deny\"><i>deny</i></a>) | (<a href=\"edit.php?key=".$key."\"><i>edit</i></a> | (<a href=\"delete.php?key=".$key."\"><i>delete</i></a>)<br><br>\n";
+			}
+			else{
+				echo "(<a href=\"moderation.php?key=".$key."&action=approve\"><i>approve</i></a>) | (<a href=\"moderation.php?key=".$key."&action=deny\"><i>deny</i></a>) | (<a href=\"edit.php?key=".$key."\"><i>edit</i></a> | (<a href=\"delete.php?key=".$key."\"><i>delete</i></a>)<br><br>\n";
+			}
 		}
 	echo "</ol>\n";
 	echo "</div>\n";
