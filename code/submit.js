@@ -25,6 +25,7 @@ function redisplayForm(){
 		setElementVisibility(document.getElementById("publisher"), true);			
 	}
 	else if(document.getElementById("pubtype").value == "conference"){
+		setElementVisibility(document.getElementById("pages"), true);
 		setElementVisibility(document.getElementById("conftitle"), true);			
 		setElementVisibility(document.getElementById("address"), true);			
 		setElementVisibility(document.getElementById("month"), true);
