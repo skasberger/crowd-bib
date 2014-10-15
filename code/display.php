@@ -105,7 +105,7 @@ function display($title, $list, $table_name){
 				$preview = $preview." ".$address.".";
 				break;
 			case "techreport":
-				if($address){
+				if($address)	{
 					$preview = $preview." ".$institution." ".$address.".";	
 				}else{
 					$preview = $preview." ".$institution.".";	
@@ -126,7 +126,7 @@ function display($title, $list, $table_name){
 				$preview = $preview." ".$school.".";
 			}
 			if($address != ""){
-				$preview = $preview." ".$address;
+				$preview = $preview." ".$address.".";
 			}
 			if($publisher != ""){
 				$preview = $preview.":".$publisher.".";
@@ -153,6 +153,9 @@ function display($title, $list, $table_name){
 				break;
 			case "inbook":
 				$preview = $preview."<font color=\"olivedrab\"> (book chapter) </font>";
+				break;
+			case "conference":
+				$preview = $preview."<font color=\"olivedrab\"> (conference proceedings) </font>";
 				break;
 			case "inproceedings":
 				$preview = $preview."<font color=\"red\"> (conference paper) </font>";
