@@ -71,6 +71,8 @@ function addAuthor(){
 	alert(author + " was added.");
 }
 
+
+
 function refreshAuthorBox(){
 	if(authors.length > 0){
 		document.getElementById("firstAuthor").value = authors[0];

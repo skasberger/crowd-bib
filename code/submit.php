@@ -125,9 +125,9 @@ if (!isset($_SESSION['initiated']))
 						<p><b>Author</b>
 						<span class="required">*</span><br>
 						<i>(example "Meyer, Philip", click "Add Author" after entering each author name)</i><br>
-						<input type="text" name="author1" id="newAuthor" onkeyup="autosuggest()">							
+						<input type="text" name="author1" id="newAuthor" onkeydown="if (event.keyCode == 13) addAuthor();">							
 						<div id="results"></div>
-						<a href="javascript:addAuthor()">Add Author</a></p>
+						<!--<a href="javascript:addAuthor()">Add Author</a></p>-->
 
 						<span id="booktitle">
 							<b>Book Title</b>
