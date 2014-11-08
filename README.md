@@ -41,7 +41,7 @@ Copy the ```config.php``` and rename it to ```config-crowdbib.php```. Then copy 
 
 ## DOCUMENTATION
 ### General
-Thanks a lot to [Danah Boyd](http://www.danah.org/) and [Dylan Field](https://twitter.com/dylanjfield), who developed the initial version of this crowd-sourced bibliography for research on [Social Network Sites](http://www.danah.org/researchBibs/sns.php) and [Twitter](http://www.danah.org/researchBibs/twitter.php). Danah provided the free source code, which [Stefan Kasberger](http://www.github.com/skasberger) built on and added some minor changes to make it more flexible in deployment and for use in wordpress.
+Thanks a lot to [danah boyd](http://www.danah.org/) and [Dylan Field](https://twitter.com/dylanjfield), who developed the initial version of this crowd-sourced bibliography for research on [Social Network Sites](http://www.danah.org/researchBibs/sns.php) and [Twitter](http://www.danah.org/researchBibs/twitter.php). Danah provided the free source code, which [Stefan Kasberger](http://www.github.com/skasberger) built on and added some minor changes to make it more flexible in deployment and for use in wordpress.
 
 Feel free to make your own bibliography for your own field of interest. The project was started during the fellowship of [Julian Ausserhofer](http://ausserhofer.net) at [Alexander von Humboldt Institute for Internet and Society](http://hiig.de/).
 
