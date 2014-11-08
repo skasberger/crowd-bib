@@ -9,7 +9,7 @@ The sourcecode is licensed under the [MIT License](http://opensource.org/license
 
 The data is licensed under [Creative Commons BY](https://creativecommons.org/licenses/by/3.0/at/).
 
-### [DEMO: Bibliography of Research on Data Journalism](http://b00mbl1tz.weblog.mur.at/ddjbib/)
+### [DEMO: Bibliography of Research on Data Journalism](http://ausserhofer.net/ddjbib/)
 
 ## DEPLOY
 
