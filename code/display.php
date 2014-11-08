@@ -2,9 +2,7 @@
 function display($title, $list, $table_name){
 	$query = "SELECT * FROM $table_name WHERE approved = 'true' AND list = '$list' ORDER BY author ASC";	
 	$result = mysql_query($query) or die (mysql_error());
-	echo "</div>\n";
-	echo "<div id=\"main\">\n";
-	echo "<h1><u>$title</u></h1>\n";
+	echo "<div id=\"citations\">\n";
 	echo "<ol>\n";
 	while ($row = mysql_fetch_object($result)){
 		echo "<li>\n";
