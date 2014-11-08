@@ -37,7 +37,7 @@ Copy ```config-user-sample.php``` and rename it to ```config-user.php```. Enter 
 
 **Optional: Wordpress Template**
 
-Copy the ```config.php``` and rename it to ```config-crowdbib.php```. Then copy the ```config-crowdbib.php```, ```template-crowdbib.php``` and ```sidebar-crowdbib.php``` in your wordpress theme folder. Now create a new page in wordpress and with the crowd-bib template.
+Copy the ```config.php``` and rename it to ```config-crowdbib.php```. Then copy the ```config-crowdbib.php```, ```template-crowdbib.php``` and ```sidebar-crowdbib.php``` in your wordpress theme folder. Now create a new page in wordpress with the crowd-bib template.
 
 ## DOCUMENTATION
 ### General

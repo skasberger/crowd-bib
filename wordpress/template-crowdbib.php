@@ -7,10 +7,9 @@
 
 include 'config-crowdbib.php';
 
-function display($list, $table_name){
+function display_citations($list, $table_name){
 	$query = "SELECT * FROM $table_name WHERE approved = 'true' AND list = '$list' ORDER BY author ASC";
 	$result = mysql_query($query) or die (mysql_error());
-	echo $result;
 	echo "<div id=\"list\">\n";
 	echo "<ol>\n";
 	while ($row = mysql_fetch_object($result)){
@@ -112,14 +111,18 @@ function display($list, $table_name){
 				$preview = $preview." ".$address.".";
 				break;
 			case "techreport":
-				$preview = $preview." ".$address.".";
+				if($address)	{
+					$preview = $preview." ".$institution." ".$address.".";	
+				}else{
+					$preview = $preview." ".$institution.".";	
+				}
+				
 				break;
 			case "unpublished":
 				$preview = $preview." ".$address.".";
 				break;
 		}
 
-/*
 		if($booktitle != ""){
 			$preview = $preview." <i>".$booktitle."</i>.";
 			if($pages != ""){
@@ -129,13 +132,13 @@ function display($list, $table_name){
 				$preview = $preview." ".$school.".";
 			}
 			if($address != ""){
-				$preview = $preview." ".$address;
+				$preview = $preview." ".$address.".";
 			}
 			if($publisher != ""){
 				$preview = $preview.":".$publisher.".";
 			}
 		}
-*/
+
 		if($doi != ""){
 			$preview = $preview." doi:".$doi."";
 		}
@@ -156,6 +159,9 @@ function display($list, $table_name){
 				break;
 			case "inbook":
 				$preview = $preview."<font color=\"olivedrab\"> (book chapter) </font>";
+				break;
+			case "conference":
+				$preview = $preview."<font color=\"olivedrab\"> (conference proceedings) </font>";
 				break;
 			case "inproceedings":
 				$preview = $preview."<font color=\"red\"> (conference paper) </font>";
@@ -193,11 +199,20 @@ function display($list, $table_name){
 		width:100%;
 	}
 
-	#content {
+	.citations {
 		background-color: white;
+		max-width: 700px;
+		min-width: 400px;
+		float:left;
 	}
 	#list {
 		padding-bottom: 3em;
+	}
+	#sidebar-crowdbib {
+		width: 330px;
+		float:right;
+		margin:20px 20px 20px 20px; 
+		line-height:1.5em;
 	}
 </style>
 
@@ -219,22 +234,16 @@ function display($list, $table_name){
 		<div id="content" role="main">
 
 			<?php while ( have_posts() ) : the_post(); ?>
-			<?php get_template_part( 'content', 'page' ); ?>
-			<div class="entry-content">
-				<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); 
-				session_start();
-
-				?>
-				<?php
-				display($list, $table_name);
-				?>
-			</div><!-- .entry-content -->
-
+			<?php the_content(); ?>
+			<div class="citations">
+				<?php display_citations($list, $table_name); ?>
+			</div>
+<?php get_sidebar('crowdbib'); ?>
 			<?php endwhile; // end of the loop. ?>
 
 		</div><!-- #content -->
+		
 	</div><!-- #primary -->
 
-<?php get_sidebar('crowdbib'); ?>
 <?php get_footer(); ?>
 
